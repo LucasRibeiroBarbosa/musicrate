@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tocador de Escalas Musicais</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+
+    <!-- Tela 1: escolher Maior ou Menor -->
+    <section id="screen-type" class="screen active">
+      <h1>Tocador de Escalas</h1>
+      <p class="label">Escolha o tipo de escala</p>
+      <div class="type-buttons">
+        <button class="type-btn" data-type="MAJOR">Maior</button>
+        <button class="type-btn" data-type="MINOR">Menor</button>
+      </div>
+    </section>
+
+    <!-- Tela 2: escolher o tom, em grade 4x3 -->
+    <section id="screen-root" class="screen">
+      <button class="back-btn" data-back-to="screen-type">← Voltar</button>
+      <p class="label" id="root-screen-title">Escolha o tom</p>
+      <div id="root-grid" class="root-grid"></div>
+    </section>
+
+    <!-- Tela 3: player da escala escolhida -->
+    <section id="screen-player" class="screen">
+      <button class="back-btn" data-back-to="screen-root">← Voltar</button>
+      <h1 id="player-title">Dó Maior</h1>
+
+      <div id="note-tiles" class="note-tiles"></div>
+
+      <div class="control-group">
+        <button id="play-btn">▶ Play</button>
+      </div>
+
+      <div class="control-group">
+        <label for="bpm-slider">
+          BPM: <span id="bpm-value">60</span>
+        </label>
+        <input type="range" id="bpm-slider" min="40" max="240" value="60" />
+      </div>
+
+      <div class="control-group">
+        <label for="volume-slider">
+          Volume: <span id="volume-value">80</span>%
+        </label>
+        <input type="range" id="volume-slider" min="0" max="100" value="80" />
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Amostras de piano embutidas em base64 (gerado por scripts/build-piano-samples.js) -->
+  <script src="piano-samples.js"></script>
+  <!-- Tone.js via CDN: biblioteca de síntese e sequenciamento de áudio no navegador -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

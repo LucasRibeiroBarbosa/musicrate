@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f0e8;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #2b2925;
+}
+
+.card {
+  background: #fffdf9;
+  padding: 2rem 2.5rem;
+  border-radius: 10px;
+  border: 1px solid #e2dccd;
+  width: 100%;
+  max-width: 420px;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.control-group {
+  margin-bottom: 1.4rem;
+}
+
+.label,
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  color: #7a7566;
+}
+
+/* Navegação entre telas: só uma fica visível por vez */
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #7a7566;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0 0 1rem;
+}
+
+.back-btn:hover {
+  color: #b5502f;
+}
+
+/* Tela 1: botões grandes Maior / Menor */
+.type-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.type-btn {
+  flex: 1;
+  padding: 1.4rem 0;
+  border-radius: 10px;
+  border: 1px solid #d8d0bd;
+  background: transparent;
+  color: #2b2925;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.type-btn:hover {
+  border-color: #b5502f;
+  color: #b5502f;
+}
+
+/* Tela 2: grade de tons, 3 colunas x 4 linhas */
+.root-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.root-tile {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid #d8d0bd;
+  background: transparent;
+  color: #2b2925;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.root-tile:hover {
+  border-color: #b5502f;
+  color: #b5502f;
+}
+
+/* Quadradinhos de notas: representam visualmente a escala escolhida */
+.note-tiles {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.6rem;
+}
+
+.note-tile {
+  flex: 1;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid #e2dccd;
+  background: #f8f5ee;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #7a7566;
+  transition: background 0.1s ease, color 0.1s ease, transform 0.1s ease;
+}
+
+.note-tile.playing {
+  background: #b5502f;
+  color: #fffdf9;
+  border-color: #b5502f;
+  transform: scale(1.08);
+}
+
+#play-btn {
+  width: 100%;
+  padding: 0.65rem;
+  border-radius: 8px;
+  border: none;
+  background: #2b2925;
+  color: #fffdf9;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+#play-btn:hover {
+  background: #453f37;
+}
+
+#play-btn:disabled {
+  background: #d8d0bd;
+  color: #9b9585;
+  cursor: wait;
+}
+
+#play-btn.playing {
+  background: #b5502f;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #b5502f;
+}
+
